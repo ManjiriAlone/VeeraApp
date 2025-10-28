@@ -252,11 +252,12 @@
 
     // Speech lines
     const speechLines = [
-      "Look! This is PIC. Little <NAME>",
-      "He's a tiny sleepy brain.",
-      "This is Lumi. She's a dancing light.",
-      "PIC whispers: \"Wake up!\"",
-      "Lumi says: \"ON!\" (Light on! Big eyes!)"
+      "💧 Hey engineer! Let's save some water today.",
+      "You'll build a system that checks how full a water tank is.",
+      "The ultrasonic sensor measures the level, and if it's too high — beep beep!",
+      "Overflow alert! 🚨",
+      "This is how real water tanks stop wasting water at home.",
+      "Let's see if your system can sound the alarm before it spills over!"
     ];
 
     let lineIndex = 0;
@@ -313,7 +314,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         if (window.serialAPI && window.serialAPI.send) {
-          // Tell Kit: app is now on Experiment 1
+          // Tell Kit: app is now on Experiment 4
           window.serialAPI.send("SET_EXPERIMENT_4");
         }
 

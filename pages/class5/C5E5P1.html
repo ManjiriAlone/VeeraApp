@@ -16,16 +16,16 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       align-items: center;
       background: linear-gradient(180deg, #f87707 0%, #fff 100%);
       position: relative;
-      text-align: center;
       overflow-x: hidden;
-      padding: 20px 10px;
+      overflow-y: auto;
+      padding: 20px;
+      text-align: center;
     }
 
-    /* Clip arts */
+    /* --- Clip arts --- */
     .clip-top {
       position: absolute;
       top: 20px;
@@ -42,101 +42,133 @@
       opacity: 0.9;
     }
 
-    /* Heading */
+    /* --- Top Navigation --- */
+    .bottom-icons {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .bottom-icons img {
+      width: 40px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .bottom-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    /* --- Heading --- */
     .heading {
-      margin-top: 70px;
+      margin-top: 80px;
       font-size: 2rem;
       font-weight: 700;
-      padding: 12px 25px;
       background: #4a830d;
-      color: white;
+      color: #fff;
+      padding: 12px 25px;
       border-radius: 15px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
 
-    /* Top Nav */
-    .bottom-icons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 15px;
-    }
-
-    .bottom-icons img {
-      width: 45px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .bottom-icons img:hover {
-      transform: scale(1.15);
-    }
-
-    /* Main Content */
+    /* --- Main Content --- */
     .content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 35px;
-      margin-top: 40px;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .board {
-      width: 320px;
-      max-width: 90%;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    .item {
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      padding: 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      width: 220px;
-      transition: transform 0.2s ease;
+      gap: 40px;
+      margin-top: 40px;
     }
 
-    .item:hover {
-      transform: translateY(-5px);
-    }
-
-    .item img {
-      width: 100%;
+    /* --- House Visualization --- */
+    .house {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      background: #f2e8cf;
+      border: 4px solid #333;
       border-radius: 10px;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
-    .item p {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-top: 5px;
+    .roof {
+      position: absolute;
+      top: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 80px solid #9d0208;
     }
 
-    /* Buttons */
-    .buttons {
+    .door {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 90px;
+      background: #7f5539;
+      border: 3px solid #3a2618;
+      border-radius: 4px;
+    }
+
+    .window {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: #cce3ff;
+      border: 3px solid #000;
+      border-radius: 6px;
+      top: 60px;
+    }
+
+    .window.left {
+      left: 35px;
+    }
+
+    .window.right {
+      right: 35px;
+    }
+
+    .bulb {
+      position: absolute;
+      top: 110px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #ff0 0%, #d1c000 50%, #000 80%);
+      box-shadow: 0 0 25px rgba(255, 255, 0, 0.5);
+      transition: all 0.4s ease;
+    }
+
+    .bulb.off {
+      background: radial-gradient(circle, #555 0%, #222 80%);
+      box-shadow: none;
+    }
+
+    /* --- Control Buttons --- */
+    .control-buttons {
       display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
       justify-content: center;
+      gap: 20px;
     }
 
     .btn {
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 10px 25px;
       border: none;
-      font-size: 0.9rem;
+      border-radius: 25px;
       font-weight: 600;
       cursor: pointer;
       color: #fff;
-      transition: transform 0.2s ease, background 0.3s;
+      font-size: 1rem;
+      transition: transform 0.2s, background 0.3s;
     }
 
     .btn-on {
@@ -148,61 +180,17 @@
     }
 
     .btn:hover {
-      transform: scale(1.05);
+      transform: scale(1.1);
     }
 
-    /* Threshold Controls */
-    .threshold-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .threshold-container input {
-      width: 100px;
-      padding: 6px 8px;
-      border-radius: 8px;
-      border: 1px solid #888;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    .threshold-buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .btn-set {
-      background: #0077ff;
-    }
-
-    .btn-reset {
-      background: #ff8c00;
-    }
-
-    /* Lion */
-    .lion {
-      width: 220px;
-      height: 220px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-    }
-
-    .lion:hover {
-      transform: scale(1.05);
-    }
-
-    /* Next Button */
+    /* --- Next Experiment Button --- */
     .next-btn {
       margin-top: 40px;
       padding: 14px 35px;
       font-size: 1.1rem;
       font-weight: 700;
       background: #444;
-      color: white;
+      color: #fff;
       border: none;
       border-radius: 12px;
       cursor: pointer;
@@ -216,35 +204,23 @@
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      .content {
-        flex-direction: column;
-        align-items: center;
-      }
-      .board {
-        margin-bottom: 20px;
-      }
-    }
-
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
       .heading {
         font-size: 1.5rem;
       }
-      .btn {
-        font-size: 0.85rem;
-      }
-      .lion {
-        width: 180px;
+      .bottom-icons {
+        top: 10px;
+        right: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Clip Arts -->
+  <!-- Clip Art -->
   <img src="../../assets/images/clip-top.png" class="clip-top" alt="Top Clip" />
   <img src="../../assets/images/clip-bottom.png" class="clip-bottom" alt="Bottom Clip" />
 
-  <!-- Navigation Icons -->
+  <!-- Top Navigation Buttons (Now Top-Right) -->
   <div class="bottom-icons">
     <img src="../../assets/icons/home.png" alt="Home" onclick="goHome()" />
     <img src="../../assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()" />
@@ -256,40 +232,19 @@
 
   <!-- Main Content -->
   <div class="content">
-    <img src="../../assets/images/touch.png" alt="Board" class="board" />
-
-    <!-- Motion Sensor -->
-    <div class="item">
-      <img src="../../assets/images/motion.png" alt="Motion Sensor" />
-      <p>Motion Sensor</p>
-      <div class="buttons">
-        <button class="btn btn-on" onclick="sendCommand('MOTION_ON')">ON</button>
-        <button class="btn btn-off" onclick="sendCommand('MOTION_OFF')">OFF</button>
-      </div>
-
-      <div class="threshold-container">
-        <label>Threshold:</label>
-        <input type="number" id="motion-threshold" min="1" max="100" value="30" />
-        <div class="threshold-buttons">
-          <button class="btn btn-set" onclick="sendThreshold('motion')">Set</button>
-          <button class="btn btn-reset" onclick="resetThreshold('motion')">Reset</button>
-        </div>
-      </div>
+    <!-- Visualization -->
+    <div class="house">
+      <div class="roof"></div>
+      <div class="window left"></div>
+      <div class="window right"></div>
+      <div id="bulb" class="bulb off"></div>
+      <div class="door"></div>
     </div>
 
-    <!-- Push Button -->
-    <div class="item">
-      <img src="../../assets/images/push.png" alt="Push Button" />
-      <p>Push Button</p>
-      <div class="buttons">
-        <button class="btn btn-on" onclick="sendCommand('BUTTON_ON')">ON</button>
-        <button class="btn btn-off" onclick="sendCommand('BUTTON_OFF')">OFF</button>
-      </div>
-    </div>
-
-    <!-- Lion -->
-    <div class="item">
-      <img src="../../assets/images/lion.png" alt="Lion Mascot" class="lion" id="lion" />
+    <!-- Buttons -->
+    <div class="control-buttons">
+      <button class="btn btn-on" onclick="turnOn()">Turn ON</button>
+      <button class="btn btn-off" onclick="turnOff()">Turn OFF</button>
     </div>
   </div>
 
@@ -303,50 +258,37 @@
 
   <script>
     const audio = document.getElementById("voice");
-    const lion = document.getElementById("lion");
+    const bulb = document.getElementById("bulb");
 
-    // Try autoplay
-    audio.play().then(() => (lion.src = "../../assets/images/lion.gif")).catch(() => {
-      document.body.addEventListener("click", () => {
-        audio.play();
-        lion.src = "../../assets/images/lion.gif";
-      }, { once: true });
+    // Audio autoplay + fallback on click
+    audio.play().catch(() => {
+      document.body.addEventListener("click", () => audio.play(), { once: true });
     });
 
-    // Reset lion after audio ends
-    audio.addEventListener("ended", () => {
-      lion.src = "../../assets/images/lion.png";
-    });
-
-    // Navigation
+    // Navigation Functions
     function goNext() { window.location.href = "./C5E6.html"; }
     function goHome() { window.location.href = "../welcome.html"; }
     function goAchievements() { window.location.href = "page4.html"; }
     function goBack() { window.history.back(); }
 
-    // Serial Communication
-    function sendCommand(command) {
-      window.serialAPI?.send(command);
-      console.log("Sent:", command);
+    // Light Control Simulation
+    function turnOn() {
+      bulb.classList.remove("off");
+      bulb.style.boxShadow = "0 0 35px rgba(255,255,0,0.8)";
+      window.serialAPI?.send("LIGHT_ON");
     }
 
-    function sendThreshold(sensorType) {
-      const threshold = document.getElementById(`${sensorType}-threshold`).value;
-      window.serialAPI?.send(`SET_THRESHOLD_${sensorType.toUpperCase()}:${threshold}`);
-      alert(`Threshold for ${sensorType} set to ${threshold}`);
-    }
-
-    function resetThreshold(sensorType) {
-      document.getElementById(`${sensorType}-threshold`).value = 30;
-      window.serialAPI?.send(`RESET_THRESHOLD_${sensorType.toUpperCase()}`);
-      alert(`Threshold for ${sensorType} reset to default (30)`);
+    function turnOff() {
+      bulb.classList.add("off");
+      bulb.style.boxShadow = "none";
+      window.serialAPI?.send("LIGHT_OFF");
     }
   </script>
 
+  <!-- Serial Handler Scripts -->
   <script src="../serial-handler.js"></script>
-    <script src="SerialManager.js"></script>
+  <script src="SerialManager.js"></script>
   <script src="./backend/experimentControls.js"></script>
   <script src="../backend/renderer.js"></script>
-
 </body>
 </html>
