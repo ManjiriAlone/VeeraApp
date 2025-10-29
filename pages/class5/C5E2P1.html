@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,10 +46,23 @@
     }
 
     @keyframes ray-fall {
-      0% { top: -150px; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { top: 100vh; opacity: 0; }
+      0% {
+        top: -150px;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        top: 100vh;
+        opacity: 0;
+      }
     }
 
     /* Decorations */
@@ -74,8 +88,15 @@
     }
 
     @keyframes float-deco {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-12px) rotate(3deg);
+      }
     }
 
     /* Navigation icons */
@@ -125,8 +146,15 @@
     }
 
     @keyframes slide-down {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     /* Content layout */
@@ -149,8 +177,15 @@
     }
 
     @keyframes fade-in-left {
-      from { transform: translateX(-100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     .board {
@@ -187,8 +222,15 @@
     }
 
     @keyframes fade-in-up {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .item:hover {
@@ -271,8 +313,15 @@
     }
 
     @keyframes fade-in-right {
-      from { transform: translateX(100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     .lion {
@@ -292,8 +341,15 @@
     }
 
     @keyframes lion-bounce {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
     }
 
     /* Glassmorphic Control Panel */
@@ -317,8 +373,15 @@
     }
 
     @keyframes fade-in {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .control-title {
@@ -501,8 +564,58 @@
         padding: 20px 15px;
       }
     }
+
+    /* Live Sensor Display Section */
+    .live-values {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .sensor-display {
+      background: rgba(255, 255, 255, 0.45);
+      border-radius: 20px;
+      padding: 25px 35px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(15px);
+      border: 3px solid rgba(255, 255, 255, 0.5);
+      min-width: 220px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sensor-display:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .sensor-display h3 {
+      font-size: 1.3rem;
+      color: #2e2e2e;
+      margin-bottom: 10px;
+    }
+
+    .sensor-display p {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0077ff;
+      text-shadow: 0 0 10px rgba(0, 119, 255, 0.4);
+    }
+
+    .sensor-display .unit {
+      display: block;
+      font-size: 1rem;
+      color: #444;
+      margin-top: 5px;
+      opacity: 0.8;
+    }
   </style>
 </head>
+
 <body>
   <!-- Animated Light Rays -->
   <div class="light-rays" id="lightRays"></div>
@@ -544,6 +657,22 @@
         <p id="sound-result" class="item-result"></p>
       </div>
     </div>
+
+    <!-- Live Sensor Value Display -->
+    <div class="live-values">
+      <div class="sensor-display">
+        <h3>🌞 Current LDR Value</h3>
+        <p id="ldrValue">--</p>
+        <span class="unit">lux</span>
+      </div>
+
+      <div class="sensor-display">
+        <h3>🔊 Current Sound Level</h3>
+        <p id="soundValue">--</p>
+        <span class="unit">dB</span>
+      </div>
+    </div>
+
 
     <!-- Lion -->
     <div class="lion-section">
@@ -675,6 +804,34 @@
     function goHome() { window.location.href = "../welcome.html"; }
     function goAchievements() { window.location.href = "../page4.html"; }
     function goBack() { window.history.back(); }
+
+    // --- Update live sensor values ---
+    function updateLiveValues(ldr, sound) {
+      document.getElementById("ldrValue").textContent = ldr ?? "--";
+      document.getElementById("soundValue").textContent = sound ?? "--";
+    }
+
+    // Example: when you get live readings from serial
+    window.serialAPI?.onData((data) => {
+      if (data.type === "ldr") {
+        updateLiveValues(data.value, null);
+        document.getElementById("ldr-result").innerHTML =
+          data.value < data.threshold
+            ? "🌙 Too Dark → Turning on Light"
+            : "☀️ Bright Enough";
+      }
+
+      if (data.type === "sound") {
+        updateLiveValues(null, data.value);
+        document.getElementById("sound-result").innerHTML =
+          data.value > data.threshold
+            ? "🔊 Too Loud → Action Taken"
+            : "🤫 Quiet and Calm";
+      }
+    });
+
+
+
   </script>
   <script src="serial-handler.js"></script>
   <script src="SerialManager.js"></script>
@@ -682,4 +839,5 @@
   <script src="../backend/renderer.js"></script>
 
 </body>
+
 </html>
