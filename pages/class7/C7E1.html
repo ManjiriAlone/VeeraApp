@@ -361,35 +361,35 @@
   </style>
 </head>
 <body>
-  <img src="/app_src/assets/images/clip-top.png" alt="Decorative top clip art" class="clip-top">
+  <img src="../../assets/images/clip-top.png" alt="Decorative top clip art" class="clip-top">
 
   <div class="top-nav">
-    <img src="/app_src/assets/icons/home.png" alt="Home" onclick="goHome()" title="Home" role="button">
-    <img src="/app_src/assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()" title="Achievements" role="button">
-    <img src="/app_src/assets/icons/logout.png" alt="Go back" onclick="goBack()" title="Back" role="button">
+    <img src="../../assets/icons/home.png" alt="Home" onclick="goHome()" title="Home" role="button">
+    <img src="../../assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()" title="Achievements" role="button">
+    <img src="../../assets/icons/logout.png" alt="Go back" onclick="goBack()" title="Back" role="button">
   </div>
 
   <h1 id="main-title" role="heading" aria-level="1"></h1>
 
   <div class="content">
-    <img src="/app_src/assets/images/board.png" alt="Circuit board" class="board">
-    <img src="/app_src/assets/images/IR_SENSOR.jpeg" alt="Infrared sensor device" class="ir-sensor">
+    <img src="../../assets/images/board.png" alt="Circuit board" class="board">
+    <img src="../../assets/images/IR_SENSOR.jpeg" alt="Infrared sensor device" class="ir-sensor">
 
     <div class="led-matrix-container" role="region" aria-label="LED matrix display showing binary values">
       <div id="led-matrix" role="img" aria-label="8 LED indicator lights"></div>
     </div>
 
     <div class="content-right">
-      <img src="/app_src/assets/images/lion.gif" alt="Animated lion mascot" class="lion" id="lion">
+      <img src="../../assets/images/lion.gif" alt="Animated lion mascot" class="lion" id="lion">
       <div class="speech" id="speech" role="region" aria-live="polite" aria-label="Instruction message"></div>
     </div>
   </div>
 
   <button class="continue-btn" onclick="navigateToNext()">
-    CONTINUE <img src="/app_src/assets/icons/arrow.png" alt="">
+    CONTINUE <img src="../../assets/icons/arrow.png" alt="">
   </button>
 
-  <img src="/app_src/assets/images/clip-bottom.png" alt="Decorative bottom clip art" class="clip-bottom">
+  <img src="../../assets/images/clip-bottom.png" alt="Decorative bottom clip art" class="clip-bottom">
 
   <audio id="voice" preload="auto">
     <source src="" type="audio/mpeg">
@@ -407,7 +407,7 @@
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            lion.src = "/app_src/assets/images/lion.gif";
+            lion.src = "../../assets/images/lion.gif";
           })
           .catch(error => {
             console.log("Autoplay prevented:", error);
@@ -423,7 +423,7 @@
 
     // Reset to PNG when audio ends
     audio.addEventListener("ended", () => {
-      lion.src = "/app_src/assets/images/lion.png";
+      lion.src = "../../assets/images/lion.png";
     });
 
     // Navigation functions

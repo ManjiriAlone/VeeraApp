@@ -142,13 +142,13 @@
 </head>
 <body>
   <!-- Top-left clip art -->
-  <img src="/app_src/assets/images/clip-top.png" alt="Top Clip" class="clip-top">
+  <img src="../../assets/images/clip-top.png" alt="Top Clip" class="clip-top">
 
   <!-- Top-right icons -->
   <div class="top-icons">
-    <img src="/app_src/assets/icons/home.png" alt="Home" onclick="goHome()">
-    <img src="/app_src/assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()">
-    <img src="/app_src/assets/icons/logout.png" alt="Back" onclick="goBack()">
+    <img src="../../assets/icons/home.png" alt="Home" onclick="goHome()">
+    <img src="../../assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()">
+    <img src="../../assets/icons/logout.png" alt="Back" onclick="goBack()">
   </div>
 
   <!-- Heading -->
@@ -166,17 +166,17 @@
   </div>
 
   <!-- Lion -->
-  <img src="/app_src/assets/images/lion.png" alt="Lion" class="lion" id="lion">
+  <img src="../../assets/images/lion.png" alt="Lion" class="lion" id="lion">
 
   <!-- Bottom-right clip art -->
-  <img src="/app_src/assets/images/clip-bottom.png" alt="Bottom Clip" class="clip-bottom">
+  <img src="../../assets/images/clip-bottom.png" alt="Bottom Clip" class="clip-bottom">
 
   <!-- Continue button -->
   <button class="continue-btn">Continue</button>
 
   <!-- Audio -->
   <audio id="voice" autoplay>
-    <source src="/app_src/assets/voice/VOICE OVER PAGE 5.mp3" type="audio/mpeg">
+    <source src="../../assets/voice/VOICE OVER PAGE 5.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -185,7 +185,7 @@
 
     // Try autoplay
     audio.play().then(() => {
-      lion.src = "/app_src/assets/images/lion.gif"; // switch to GIF when audio plays
+      lion.src = "../../assets/images/lion.gif"; // switch to GIF when audio plays
     }).catch(() => {
       console.log("Autoplay blocked, waiting for user interaction...");
       document.body.addEventListener("click", () => {
@@ -195,12 +195,12 @@
 
     // When audio starts
     audio.addEventListener("play", () => {
-      lion.src = "/app_src/assets/images/lion.gif";
+      lion.src = "../../assets/images/lion.gif";
     });
 
     // When audio ends
     audio.addEventListener("ended", () => {
-      lion.src = "/app_src/assets/images/lion.png";
+      lion.src = "../../assets/images/lion.png";
     });
 
     // Continue button action
@@ -210,10 +210,10 @@
 
     // Navigation functions
     function goHome() {
-      window.location.href = "/app_src/pages/welcome.html";
+      window.location.href = "../../pages/welcome.html";
     }
     function goAchievements() {
-      window.location.href = "/app_src/pages/page4.html";
+      window.location.href = "../../pages/page4.html";
     }
     function goBack() {
       window.history.back();

@@ -142,13 +142,13 @@
 </head>
 <body>
   <!-- Top-left clip art -->
-  <img src="/app_src/assets/images/clip-top.png" alt="Top Clip" class="clip-top">
+  <img src="../../assets/images/clip-top.png" alt="Top Clip" class="clip-top">
 
   <!-- Top-right icons -->
   <div class="top-icons">
-    <img src="/app_src/assets/icons/home.png" alt="Home" onclick="goHome()">
-    <img src="/app_src/assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()">
-    <img src="/app_src/assets/icons/logout.png" alt="Back" onclick="goBack()">
+    <img src="../../assets/icons/home.png" alt="Home" onclick="goHome()">
+    <img src="../../assets/icons/achievements.png" alt="Achievements" onclick="goAchievements()">
+    <img src="../../assets/icons/logout.png" alt="Back" onclick="goBack()">
   </div>
 
   <!-- Heading -->
@@ -167,10 +167,10 @@
   </div>
 
   <!-- Lion -->
-  <img src="/app_src/assets/images/lion.png" alt="Lion" class="lion" id="lion">
+  <img src="../../assets/images/lion.png" alt="Lion" class="lion" id="lion">
 
   <!-- Bottom-right clip art -->
-  <img src="/app_src/assets/images/clip-bottom.png" alt="Bottom Clip" class="clip-bottom">
+  <img src="../../assets/images/clip-bottom.png" alt="Bottom Clip" class="clip-bottom">
 
   <!-- Continue button -->
   <button class="continue-btn">Continue</button>
@@ -186,7 +186,7 @@
 
     // Try autoplay
     audio.play().then(() => {
-      lion.src = "/app_src/assets/images/lion.gif"; 
+      lion.src = "../../assets/images/lion.gif"; 
     }).catch(() => {
       console.log("Autoplay blocked, waiting for user interaction...");
       document.body.addEventListener("click", () => {
@@ -196,12 +196,12 @@
 
     // When audio starts
     audio.addEventListener("play", () => {
-      lion.src = "/app_src/assets/images/lion.gif";
+      lion.src = "../../assets/images/lion.gif";
     });
 
     // When audio ends
     audio.addEventListener("ended", () => {
-      lion.src = "/app_src/assets/images/lion.png";
+      lion.src = "../../assets/images/lion.png";
     });
 
     // Continue button action
@@ -223,13 +223,13 @@
     // ✅ Experiment navigation
     function goExperiment(num) {
       const pages = {
-        1: "class6E1.html",
-        2: "class6E2.html",
-        3: "class6E3.html",
-        4: "class6E4.html",
-        5: "class6E5.html",
-        6: "class6E6.html",
-        7: "class6E7.html",
+        1: "C6E1.html",
+        2: "C6E2.html",
+        3: "C6E3.html",
+        4: "C6E4.html",
+        5: "C6E5.html",
+        6: "C6E6.html",
+        7: "C6E7.html",
       };
       if (pages[num]) {
         window.location.href = pages[num];

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Water Level Alerting</title>
+  <title>Plant Soil Monitoring</title>
   <style>
     * {
       margin: 0;
@@ -50,9 +51,11 @@
         transform: translateX(0) scale(1);
         opacity: 0.8;
       }
+
       50% {
         transform: translateX(100px) scale(1.2);
       }
+
       100% {
         bottom: 110vh;
         transform: translateX(-50px) scale(0.8);
@@ -93,9 +96,19 @@
     }
 
     @keyframes wave {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(20deg); }
-      75% { transform: rotate(-20deg); }
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(20deg);
+      }
+
+      75% {
+        transform: rotate(-20deg);
+      }
     }
 
     .nav-icons {
@@ -148,8 +161,15 @@
     }
 
     @keyframes float-clip {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(5deg);
+      }
     }
 
     /* Heading */
@@ -169,9 +189,19 @@
     }
 
     @keyframes bounce-in {
-      0% { transform: scale(0.8); opacity: 0; }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     /* Main Content */
@@ -195,8 +225,15 @@
     }
 
     @keyframes slide-in-left {
-      from { transform: translateX(-100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(-100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     .plant-img {
@@ -230,8 +267,15 @@
     }
 
     @keyframes drop-fall {
-      0% { top: -20px; opacity: 1; }
-      100% { top: 100%; opacity: 0; }
+      0% {
+        top: -20px;
+        opacity: 1;
+      }
+
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
     }
 
     /* Sensor Card */
@@ -251,8 +295,15 @@
     }
 
     @keyframes slide-in-up {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
 
     .sensor-card:hover {
@@ -268,8 +319,15 @@
     }
 
     @keyframes sensor-glow {
-      0%, 100% { filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2)); }
-      50% { filter: drop-shadow(0 4px 20px rgba(100, 200, 255, 0.6)); }
+
+      0%,
+      100% {
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+      }
+
+      50% {
+        filter: drop-shadow(0 4px 20px rgba(100, 200, 255, 0.6));
+      }
     }
 
     .sensor-card h3 {
@@ -348,9 +406,19 @@
     }
 
     @keyframes buzz-shake {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(-10deg); }
-      75% { transform: rotate(10deg); }
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(-10deg);
+      }
+
+      75% {
+        transform: rotate(10deg);
+      }
     }
 
     .buzzer-card h3 {
@@ -369,8 +437,15 @@
     }
 
     @keyframes slide-in-right {
-      from { transform: translateX(100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
+      from {
+        transform: translateX(100px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
     }
 
     .speech {
@@ -451,8 +526,15 @@
     }
 
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     /* Responsive */
@@ -508,6 +590,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Animated Bubbles -->
   <div class="bubbles" id="bubbles"></div>
@@ -515,9 +598,11 @@
   <!-- Header -->
   <header>
     <div class="logo">
-      <span>🌊</span> Smart Water Alert
+      <!-- <span>🌊</span>  -->
     </div>
+    <div class="heading">💧 Plant Soil Monitoring🚨</div>
     <div class="nav-icons">
+
       <div class="nav-icon" onclick="goHome()" title="Home">🏠</div>
       <div class="nav-icon" onclick="goAchievements()" title="Achievements">🏆</div>
       <div class="nav-icon" onclick="goBack()" title="Back">◀️</div>
@@ -529,7 +614,6 @@
   <img src="../../assets/images/clip-bottom.png" class="clip-bottom" alt="Bottom Clip">
 
   <!-- Heading -->
-  <div class="heading">💧 WATER LEVEL ALERTING 🚨</div>
 
   <!-- Main Content -->
   <div class="content">
@@ -595,7 +679,12 @@
     const sensorImg = document.getElementById("sensorImg");
     const waterDrops = document.getElementById("waterDrops");
 
-    const speechText = "💧 This soil moisture sensor checks if the soil is dry.\nIf water is low, the buzzer alerts us immediately! 🚨";
+   const speechText = `💧🌱 Shhh… listen! Your plant is trying to tell you something — “I’m thirsty!”
+The soil moisture sensor helps us understand if the plant’s soil is dry or wet.
+If it’s dry, we water it. If it’s moist, the plant is happy! 😊
+This experiment teaches how sensors help us take care of living things.
+Let’s keep our green friend smiling! 🚨`;
+
 
     let sensorActive = false;
     let dropInterval;
@@ -627,15 +716,15 @@
     // Toggle sensor
     function toggleSensor(isOn) {
       sensorActive = isOn;
-      
+
       if (isOn) {
         // Turn on sensor
         document.getElementById('btnOn').style.transform = 'scale(1.2)';
         document.getElementById('btnOff').style.transform = 'scale(1)';
-        
+
         // Start water drops
         dropInterval = setInterval(createWaterDrop, 500);
-        
+
         // Simulate low water after 3 seconds
         setTimeout(() => {
           if (sensorActive) {
@@ -649,10 +738,10 @@
         // Turn off sensor
         document.getElementById('btnOn').style.transform = 'scale(1)';
         document.getElementById('btnOff').style.transform = 'scale(1.2)';
-        
+
         // Stop water drops
         clearInterval(dropInterval);
-        
+
         // Reset buzzer
         buzzerImg.classList.remove('buzzer-active');
         buzzerStatus.textContent = 'Ready to Alert!';
@@ -703,4 +792,5 @@
   <script src="../backend/renderer.js"></script>
 
 </body>
+
 </html>

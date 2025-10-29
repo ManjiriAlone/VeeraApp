@@ -60,6 +60,7 @@
         main {
             flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             position: relative;
@@ -72,10 +73,6 @@
             justify-content: center;
             position: relative;
             gap: 50px;
-        }
-
-        .sensor {
-            position: relative;
         }
 
         .sensor img {
@@ -94,7 +91,6 @@
             height: auto;
         }
 
-        /* Connecting line between sensor and Arduino */
         .line {
             position: absolute;
             top: 50%;
@@ -106,7 +102,41 @@
             z-index: 1;
         }
 
-        /* Footer section */
+        /* Typewriter text box */
+        .typewriter-box {
+            margin-top: 30px;
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #004d40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Blinking cursor */
+        .cursor {
+            display: inline-block;
+            width: 6px;
+            background-color: #004d40;
+            animation: blink 0.8s infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% {
+                opacity: 1;
+            }
+
+            25%, 75% {
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
         footer {
             background-color: #00796b;
             color: white;
@@ -146,6 +176,11 @@
             .lion {
                 margin-top: 20px;
             }
+
+            .typewriter-box {
+                width: 95%;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -156,41 +191,63 @@
         <h1>💡 Automatic Light Control System</h1>
 
         <div class="nav-buttons">
-            <a href="#"><img src="../icons/home.png" alt="Home"></a>
-            <a href="#"><img src="../icons/logout.png" alt="Logout"></a>
-            <a href="#"><img src="../icons/achievements.png"
-                    alt="Achievements"></a>
+            <a href="#"><img src="../../assets/icons/home.png" alt="Home"></a>
+            <a href="#"><img src="../../assets/icons/logout.png" alt="Logout"></a>
+            <a href="#"><img src="../../assets/icons/achievements.png" alt="Achievements"></a>
         </div>
     </header>
 
     <main>
         <div class="system-container">
-            <!-- Left: LDR Sensor -->
             <div class="sensor">
-                <img src="../images/LDR.png" alt="LDR Sensor">
-                <!-- Connecting Line -->
+                <img src="../../assets/images/LDR.png" alt="LDR Sensor">
                 <div class="line"></div>
             </div>
 
-            <!-- Middle: Arduino -->
             <div class="arduino">
-                <img src="../images/veera.png" alt="Arduino Board">
+                <img src="../../assets/images/board.png" alt="Arduino Board">
             </div>
 
-            <!-- Right: Lion GIF -->
             <div class="lion">
-                <img src="../images/lion.gif" alt="Lion Animation">
+                <img src="../../assets/images/lion.gif" alt="Lion Animation">
             </div>
         </div>
+
+        <!-- Typewriter narration -->
+        <div class="typewriter-box" id="typewriter"></div>
     </main>
 
     <footer>
-        
         <button>Next</button>
     </footer>
-      <script src="SerialManager.js"></script>
-  <script src="./backend/experimentControls.js"></script>
-  <script src="../backend/renderer.js"></script>
+
+    <script>
+        const text = `🌞 Good morning! Or should I say... 🌙 good evening?
+Your Veera Kit is about to learn how to tell the difference!
+With its LDR sensor, it can feel how bright or dark the room is.
+When it’s dark, it switches the light ON — and when it’s bright, it turns it OFF.
+That’s how streetlights work smartly every night!
+Let’s see if your kit can light up the world the smart way! 💡`;
+
+        const typewriterEl = document.getElementById("typewriter");
+        let i = 0;
+
+        function typeEffect() {
+            if (i < text.length) {
+                typewriterEl.innerHTML = text.substring(0, i + 1) + '<span class="cursor"></span>';
+                i++;
+                setTimeout(typeEffect, 50);
+            } else {
+                typewriterEl.innerHTML = text + '<span class="cursor"></span>';
+            }
+        }
+
+        window.onload = typeEffect;
+    </script>
+
+    <script src="SerialManager.js"></script>
+    <script src="./backend/experimentControls.js"></script>
+    <script src="../backend/renderer.js"></script>
 
 </body>
 
