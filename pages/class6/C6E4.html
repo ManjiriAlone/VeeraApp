@@ -21,7 +21,7 @@
             justify-content: space-between;
         }
 
-        /* Header section */
+        /* Header */
         header {
             background-color: #00796b;
             color: white;
@@ -56,7 +56,7 @@
             background-color: rgba(255, 255, 255, 0.2);
         }
 
-        /* Main section */
+        /* Main */
         main {
             flex: 1;
             display: flex;
@@ -102,7 +102,7 @@
             z-index: 1;
         }
 
-        /* Typewriter text box */
+        /* Typewriter box */
         .typewriter-box {
             margin-top: 30px;
             background: #ffffff;
@@ -117,7 +117,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Blinking cursor */
         .cursor {
             display: inline-block;
             width: 6px;
@@ -130,7 +129,6 @@
             0%, 50%, 100% {
                 opacity: 1;
             }
-
             25%, 75% {
                 opacity: 0;
             }
@@ -159,7 +157,6 @@
             background-color: #26a69a;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 18px;
@@ -213,12 +210,11 @@
             </div>
         </div>
 
-        <!-- Typewriter narration -->
         <div class="typewriter-box" id="typewriter"></div>
     </main>
 
     <footer>
-        <button>Next</button>
+        <button id="nextBtn">Next</button>
     </footer>
 
     <script>
@@ -243,6 +239,11 @@ Let’s see if your kit can light up the world the smart way! 💡`;
         }
 
         window.onload = typeEffect;
+
+        // Redirect when Next button clicked
+        document.getElementById("nextBtn").addEventListener("click", () => {
+            window.location.href = "C6E5.html";
+        });
     </script>
 
     <script src="SerialManager.js"></script>
