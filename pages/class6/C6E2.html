@@ -324,9 +324,9 @@
     /* Lion Section */
     .lion-section {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 15px;
+      gap: 20px;
       background: rgba(255, 255, 255, 0.15);
       padding: 25px;
       border-radius: 20px;
@@ -334,11 +334,46 @@
       border: 2px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
       transition: all 0.4s ease;
+      width: 100%;
     }
 
     .lion-section:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-textbox {
+      flex: 1;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+      color: #1e40af;
+      padding: 20px 25px;
+      border-radius: 20px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 600;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      border: 3px solid rgba(59, 130, 246, 0.3);
+      position: relative;
+      transition: all 0.4s ease;
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+    }
+
+    .info-textbox:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      border-color: rgba(59, 130, 246, 0.5);
+    }
+
+    .cursor-info {
+      display: inline-block;
+      width: 3px;
+      height: 1.1em;
+      background: #1e40af;
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+      vertical-align: middle;
     }
 
     .lion-gif {
@@ -348,6 +383,7 @@
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
       transition: all 0.5s ease;
       border: 3px solid rgba(255, 255, 255, 0.3);
+      flex-shrink: 0;
     }
 
     .lion-gif:hover {
@@ -541,6 +577,18 @@
       .clip-top, .clip-bottom {
         width: 100px;
       }
+
+      .lion-section {
+        flex-direction: column;
+      }
+
+      .info-textbox {
+        width: 100%;
+      }
+
+      .lion-gif {
+        width: 150px;
+      }
     }
   </style>
 </head>
@@ -580,8 +628,11 @@
         </div>
       </div>
 
-      <!-- Lion Guardian -->
+      <!-- Lion Guardian with Info Box -->
       <div class="lion-section">
+        <div class="info-textbox">
+          <span id="infoText"></span><span class="cursor-info"></span>
+        </div>
         <img src="../../assets/images/lion.gif" alt="Lion Guardian" class="lion-gif">
       </div>
 
@@ -614,11 +665,16 @@
     const speechText = document.getElementById("speechText");
     const thresholdInput = document.getElementById("thresholdInput");
     const tempDisplay = document.getElementById("tempDisplay");
+    const infoText = document.getElementById("infoText");
 
     let temperature = null;
     let threshold = 25;
     let isTyping = false;
     let typewriterTimeout = null;
+    let infoTyping = false;
+    let infoTypewriterTimeout = null;
+
+    const introMessage = "🍎 Hello food savers! Fruits, milk, and vegetables spoil if the temperature and humidity aren't just right. That's why your Veera Kit is now a food freshness detective! 🕵️‍♀️ With its temperature and humidity sensors, it checks if food is stored safely. When the values go too high — uh-oh, the food starts to spoil! Let's learn how science helps us keep food fresh and healthy. Ready to investigate? 🧺🌡️";
 
     // Fun messages for kids
     const freshMessages = [
@@ -651,6 +707,30 @@
       "Initializing food safety guardian mode! 🦁",
       "Calibrating sensors for accurate readings! 🎯"
     ];
+
+    // Typewriter effect for info box
+    function typeWriterInfo(text, callback) {
+      if (infoTyping) {
+        clearTimeout(infoTypewriterTimeout);
+      }
+      
+      infoTyping = true;
+      infoText.textContent = '';
+      let index = 0;
+
+      function type() {
+        if (index < text.length) {
+          infoText.textContent += text.charAt(index);
+          index++;
+          infoTypewriterTimeout = setTimeout(type, 30); // Speed of typing
+        } else {
+          infoTyping = false;
+          if (callback) callback();
+        }
+      }
+      
+      type();
+    }
 
     // Typewriter effect
     function typeWriter(text, callback) {
@@ -695,7 +775,7 @@
       tempDisplay.textContent = `${temperature}°C`;
       
       if (temperature > threshold) {
-        foodImage.src = "../images/fresh-food.png";
+        foodImage.src = "../../assets/images/fresh-food.png";
         foodImage.classList.remove('bounce-animation');
         foodImage.classList.add('shake-animation');
         setTimeout(() => foodImage.classList.remove('shake-animation'), 600);
@@ -706,7 +786,7 @@
         speech.style.borderColor = "rgba(245,101,101,0.5)";
         speech.style.color = "#742a2a";
       } else {
-        foodImage.src = "../images/food-img.png";
+        foodImage.src = "../../assets/images/food-img.png";
         foodImage.classList.remove('shake-animation');
         foodImage.classList.add('bounce-animation');
         setTimeout(() => foodImage.classList.remove('bounce-animation'), 800);
@@ -816,8 +896,13 @@
     document.addEventListener("DOMContentLoaded", () => {
       console.log("🚀 Perishable Goods Monitoring System initialized");
       
-      // Show initial message
+      // Show initial message in speech bubble
       typeWriter(getRandomMessage(waitingMessages));
+      
+      // Start info box animation immediately
+      setTimeout(() => {
+        typeWriterInfo(introMessage);
+      }, 500);
       
       // Check if Serial API is available
       if (window.serialAPI) {
@@ -873,7 +958,7 @@
 
   <script src="../backend/renderer.js"></script>
   <script src="serialmanager.js"></script>
-    <script src="SerialManager.js"></script>
+  <script src="SerialManager.js"></script>
   <script src="./backend/experimentControls.js"></script>
   <script src="../backend/renderer.js"></script>
 

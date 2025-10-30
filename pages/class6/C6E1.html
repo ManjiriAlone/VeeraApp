@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object Detection </title>
+    <title>Object Detection</title>
     <style>
         * {
             margin: 0;
@@ -23,7 +23,6 @@
             color: #333;
         }
 
-        /* Header */
         .header {
             position: sticky;
             top: 0;
@@ -79,15 +78,12 @@
             box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
         }
 
-        .icon-btn:active {
-            transform: scale(0.95);
-        }
-
         @keyframes slideDown {
             from {
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -100,7 +96,6 @@
             padding: 40px 20px;
         }
 
-        /* Sensor Demo Section */
         .sensor-demo {
             display: flex;
             align-items: center;
@@ -171,25 +166,30 @@
         }
 
         .explain-text {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             font-weight: 600;
             color: #0077b6;
             line-height: 1.7;
-            min-height: 120px;
+            min-height: 140px;
             position: relative;
+            text-align: left;
         }
 
         .explain-text::after {
             content: '▌';
             animation: blink 1s infinite;
-            margin-left: 5px;
+            margin-left: 3px;
         }
 
         @keyframes blink {
-            0%, 49% {
+
+            0%,
+            49% {
                 opacity: 1;
             }
-            50%, 100% {
+
+            50%,
+            100% {
                 opacity: 0;
             }
         }
@@ -212,13 +212,9 @@
             box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
         }
 
-        .sample-btn:active {
-            transform: translateY(0);
-        }
-
         .veera {
             width: 160px;
-            height:200px;
+            height: 350px;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             animation: float 3s ease-in-out infinite 0.6s;
@@ -228,9 +224,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px);
             }
+
             50% {
                 transform: translateY(-15px);
             }
@@ -241,13 +240,13 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Demo Section */
         .demo-section {
             background: white;
             border-radius: 20px;
@@ -275,7 +274,6 @@
             align-items: center;
         }
 
-        /* Sensor Animation */
         .sensor-animation {
             position: relative;
             width: 100%;
@@ -308,9 +306,12 @@
         }
 
         @keyframes devicePulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
             }
+
             50% {
                 box-shadow: 0 8px 30px rgba(102, 126, 234, 0.7);
             }
@@ -327,7 +328,6 @@
             transform: translate(40px, -50%);
             opacity: 0;
             animation: waveExpand 2s ease-out infinite;
-            will-change: transform, opacity;
         }
 
         .ir-wave:nth-child(2) {
@@ -348,6 +348,7 @@
                 height: 50px;
                 opacity: 1;
             }
+
             100% {
                 width: 300px;
                 height: 300px;
@@ -366,13 +367,15 @@
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
             animation: objectBounce 2s ease-in-out infinite;
-            will-change: transform;
         }
 
         @keyframes objectBounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(-50%) translateX(0);
             }
+
             50% {
                 transform: translateY(-50%) translateX(-20px);
             }
@@ -386,13 +389,15 @@
             height: 3px;
             background: linear-gradient(90deg, #667eea, #764ba2);
             animation: measureDistance 2s ease-in-out infinite;
-            will-change: width;
         }
 
         @keyframes measureDistance {
-            0%, 100% {
+
+            0%,
+            100% {
                 width: 0;
             }
+
             50% {
                 width: calc(100% - 330px);
             }
@@ -413,15 +418,17 @@
         }
 
         @keyframes labelPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
             }
+
             50% {
                 opacity: 1;
             }
         }
 
-        /* Radar */
         .radar-container {
             position: relative;
             width: 100%;
@@ -518,13 +525,13 @@
                     transparent 30%);
             border-radius: 50%;
             animation: radarSweep 3s linear infinite;
-            will-change: transform;
         }
 
         @keyframes radarSweep {
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -545,9 +552,12 @@
         }
 
         @keyframes centerPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 box-shadow: 0 0 20px #667eea, 0 0 40px rgba(102, 126, 234, 0.5);
             }
+
             50% {
                 box-shadow: 0 0 30px #667eea, 0 0 60px rgba(102, 126, 234, 0.8);
             }
@@ -562,7 +572,6 @@
             box-shadow: 0 0 20px #00ff00;
             animation: autoDetect 4s ease-in-out infinite;
             opacity: 0;
-            will-change: transform, opacity;
         }
 
         .auto-detected-object:nth-child(10) {
@@ -578,14 +587,19 @@
         }
 
         @keyframes autoDetect {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
                 transform: translate(-50%, -50%) scale(0);
             }
-            10%, 90% {
+
+            10%,
+            90% {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(1);
             }
+
             50% {
                 transform: translate(-50%, -50%) scale(1.3);
                 box-shadow: 0 0 30px #00ff00, 0 0 40px #00ff00;
@@ -621,16 +635,24 @@
         }
 
         @keyframes statusPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 background: rgba(0, 255, 0, 0.9);
             }
+
             50% {
                 background: rgba(0, 255, 0, 1);
             }
         }
 
+        .visual-demo-text {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #555;
+            margin-top: 20px;
+        }
 
-      
         .learn-more-link {
             display: inline-block;
             text-align: center;
@@ -668,9 +690,7 @@
                 font-size: 1.5em;
             }
 
-            .demo-section h2,
-            .how-it-works h2,
-            .fun-facts h2 {
+            .demo-section h2 {
                 font-size: 1.5em;
             }
 
@@ -683,26 +703,23 @@
                 padding: 25px;
             }
 
-            .sensor, .buzzer, .veera {
+            .sensor,
+            .buzzer {
                 width: 120px;
                 height: 120px;
+            }
+
+            .veera {
+                width: 120px;
+                height: 250px;
             }
 
             .top-icons {
                 right: 15px;
                 gap: 10px;
             }
-
-            .steps-container {
-                grid-template-columns: 1fr;
-            }
-
-            .facts-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        /* Performance: Reduce animations on reduced motion preference */
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -710,58 +727,38 @@
                 transition-duration: 0.01ms !important;
             }
         }
-
-        .hidden-link {
-            display: none;
-        }
     </style>
 </head>
 
 <body>
     <div class="header">
         <div class="header-text">
-            <h1> Object Detection Experiment</h1>
+            <h1>🔬 Object Detection Experiment</h1>
             <p>Class 6 - Experiment 1: Understanding IR Sensors</p>
         </div>
-
         <div class="top-icons">
-    <a href="../page4.html">
-        <button class="icon-btn" title="Home">🏠</button>
-    </a>
-    <a href="../page4.html">
-        <button class="icon-btn" title="Achievements">🏆</button>
-    </a>
-    <a href="#">
-        <button class="icon-btn" title="Back">↩️</button>
-    </a>
-</div>
-
+            <button class="icon-btn" title="Home" onclick="goToPage('../page4.html')">🏠</button>
+            <button class="icon-btn" title="Class 6 List" onclick="goToPage('class6list.html')">🏆</button>
+            <button class="icon-btn" title="Back" onclick="goBack()">↩️</button>
+        </div>
     </div>
 
     <div class="container">
-        <!-- Sensor Demo Section -->
         <div class="sensor-demo">
             <div class="left-side">
-                <img src="../../assets/images/IR_SENSOR.jpeg" alt="IR Sensor" class="sensor" onerror="this.style.display='none'">
-                <!-- <div style="width: 140px; height: 140px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 60px;" class="sensor">📡</div> -->
-                
-                <img src="../../assets/images/buzzer.png" alt="Buzzer" class="buzzer" onerror="this.style.display='none'">
-                <!-- <div style="width: 140px; height: 140px; background: linear-gradient(135deg, #ff6b6b, #ff5252); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 60px;" class="buzzer">🔊</div> -->
+                <img src="../../assets/images/IR_SENSOR.jpeg" alt="IR Sensor" class="sensor">
+                <img src="../../assets/images/buzzer.png" alt="Buzzer" class="buzzer">
             </div>
 
             <div class="explain-box">
-                <img src="../../assets/images/board.png" alt="board" class="board" onerror="this.style.display='none'">
-                <!-- <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #0077b6, #0096c7); border-radius: 12px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 50px;" class="board"></div> -->
-                
+                <img src="../../assets/images/board.png" alt="board" class="board">
                 <p class="explain-text" id="typed-text"></p>
-                <button class="sample-btn">Learn More</button>
+                <button class="sample-btn" onclick="alert('Learn more about sensors!')">Learn More</button>
             </div>
 
-            <img src="../../assets/images/lion.gif" alt="lion" class="veera" style="height: 350px;" onerror="this.style.display='none'">
-            <!-- <div style="width: 160px; height: 160px; background: linear-gradient(135deg, #ffd93d, #ff9a00); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 80px; animation: float 3s ease-in-out infinite 0.6s;" class="veera"></div> -->
+            <img src="../../assets/images/lion.gif" alt="lion" class="veera">
         </div>
 
-        <!-- How It Works Animation -->
         <div class="demo-section">
             <h2>🎯 How Object Detection Works</h2>
 
@@ -804,48 +801,49 @@
             </div>
 
             <p class="visual-demo-text">
-                <strong>Watch the animation!</strong> The sensor sends invisible infrared waves 📡 that bounce back when they hit an object 📦
+                <!-- <strong>Watch the animation!</strong> The sensor sends invisible infrared waves 📡 that bounce back when they hit an object 📦 -->
             </p>
         </div>
 
-  
-        <!-- Learn More Link -->
         <div style="text-align: center; margin-top: 50px; margin-bottom: 40px;">
-            <a href="./C6E1P1.html" class="learn-more-link">Continue to Experiment 1 - Part 2 →</a>
+            <a href="#" class="learn-more-link" onclick="goToPage('C6E1P1.html')" ; return false;">Continue to
+                Experiment 1 - Part 2 →</a>
         </div>
-        
     </div>
 
-
     <script>
-        // Optimized typing effect
-        const lines = [
-            "The IR sensor detects an object nearby,",
-            "sends a signal to the board instantly.",
-            "The board tells the buzzer to beep loud,",
-            "and Veera learns — 'Something's around!'",
-            "Sensors and sound help Veera stay alert!"
+        const introLines = [
+            "👀 Hey explorer! Ever wished your eyes could sense things without touching them?",
+            "That's what we're doing today — using an ultrasonic sensor to see objects!",
+            "Just like a bat uses sound waves to fly at night, your Veera Kit sends out tiny sound pulses.",
+            "When those waves hit something, they bounce back — and the kit knows something's there!",
+            "Cool, right?",
+            "Let's test it — move your hand closer and watch the magic happen! 🦇✨"
         ];
 
         const textElement = document.getElementById("typed-text");
         let lineIndex = 0;
         let charIndex = 0;
-        let typingSpeed = 50;
-        let isTyping = true;
+        const typingSpeed = 50;
+        const linePause = 800;
 
         function typeLine() {
-            if (lineIndex < lines.length) {
-                if (charIndex < lines[lineIndex].length) {
-                    textElement.textContent += lines[lineIndex].charAt(charIndex);
+            if (lineIndex < introLines.length) {
+                if (charIndex < introLines[lineIndex].length) {
+                    textElement.textContent += introLines[lineIndex].charAt(charIndex);
                     charIndex++;
                     setTimeout(typeLine, typingSpeed);
                 } else {
+                    textElement.textContent += "\n";
                     charIndex = 0;
                     lineIndex++;
-                    setTimeout(typeLine, 600);
+                    setTimeout(typeLine, linePause);
                 }
             } else {
-                isTyping = false;
+                // Remove cursor after typing is complete
+                setTimeout(() => {
+                    textElement.style.setProperty('--cursor', 'none');
+                }, 1000);
             }
         }
 
@@ -856,8 +854,21 @@
             typeLine();
         }
 
-        // Add click event to sample button
-        document.querySelector('.sample-btn').addEventListener('click', function() {
+        function goToPage(page) {
+            // Navigate to the given page
+            window.location.href = page;
+        }
+
+        function goBack() {
+            // Navigate back or go home if there's no history
+            if (document.referrer) {
+                window.history.back();
+            } else {
+                window.location.href = '../page4.html';
+            }
+        }
+
+        document.querySelector('.sample-btn').addEventListener('click', function () {
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = 'translateY(-2px)';
@@ -880,14 +891,12 @@
             const hiddenLinks = document.querySelectorAll('.hidden-link');
             hiddenLinks.forEach(link => link.remove());
         };
-
-        // Call after page fully loads
         window.addEventListener('load', removeUnusedLinks);
     </script>
-      <script src="SerialManager.js"></script>
-  <script src="./backend/experimentControls.js"></script>
-  <script src="../backend/renderer.js"></script>
 
-
+    <script src="SerialManager.js"></script>
+    <script src="./backend/experimentControls.js"></script>
+    <script src="../backend/renderer.js"></script>
 </body>
+
 </html>
